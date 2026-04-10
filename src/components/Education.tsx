@@ -29,13 +29,13 @@ export default function Education() {
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="education" className="py-24 px-4 sm:px-6 section-alt overflow-hidden">
+    <section id="education" className="py-12 px-4 sm:px-6 lg:py-0 section-alt overflow-hidden">
       <div className="max-w-6xl mx-auto" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: 'var(--gold)' }}>
             Education
@@ -64,7 +64,7 @@ export default function Education() {
                 whileHover={{ scale: 1.03 }}
                 transition={{ type: 'spring', stiffness: 180 }}
                 className="relative w-full rounded-3xl object-cover shadow-2xl"
-                style={{ border: '3px solid var(--gold-light)', maxHeight: 420, objectPosition: 'top' }}
+                style={{ border: '3px solid var(--gold-light)', maxHeight: 340, objectPosition: 'top' }}
               />
             </div>
           </motion.div>
@@ -78,7 +78,7 @@ export default function Education() {
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: i * 0.15, duration: 0.5 }}
                 whileHover={{ scale: 1.02, x: 4 }}
-                className="card rounded-2xl p-5 flex gap-4 cursor-default"
+                className="card rounded-2xl p-4 flex gap-4 cursor-default"
               >
                 <div
                   className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 mt-1"

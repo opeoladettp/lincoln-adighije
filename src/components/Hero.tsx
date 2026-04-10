@@ -18,7 +18,7 @@ export default function Hero() {
     <section
       ref={ref}
       id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden lg:min-h-0 lg:h-screen"
     >
       {/* Parallax background blobs */}
       <motion.div
@@ -54,7 +54,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6"
+              className="text-4xl sm:text-5xl lg:text-4xl xl:text-5xl font-extrabold leading-tight mb-4"
               style={{ color: 'var(--text-primary)' }}
             >
               Bridging the Gap Between{' '}
@@ -65,7 +65,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.35 }}
-              className="text-base sm:text-lg max-w-xl mb-10 leading-relaxed"
+              className="text-base sm:text-lg max-w-xl mb-6 leading-relaxed"
               style={{ color: 'var(--text-muted)' }}
             >
               A legally trained Software Engineer and Case Manager specializing in full-stack
@@ -76,7 +76,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.45 }}
-              className="flex flex-wrap gap-4 mb-12"
+              className="flex flex-wrap gap-4 mb-6"
             >
               <motion.a
                 href="#experience"
@@ -143,7 +143,7 @@ export default function Hero() {
                 alt="Lincoln Adighije"
                 whileHover={{ scale: 1.03 }}
                 transition={{ type: 'spring', stiffness: 200 }}
-                className="relative rounded-3xl object-cover w-full max-w-xs sm:max-w-sm md:max-w-md shadow-2xl"
+                className="relative rounded-3xl object-cover w-full max-w-xs sm:max-w-sm md:max-w-md shadow-2xl lg:max-h-[55vh]"
                 style={{ border: '3px solid var(--gold-light)' }}
               />
               {/* Floating badge */}

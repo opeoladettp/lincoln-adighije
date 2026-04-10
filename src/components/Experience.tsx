@@ -70,7 +70,7 @@ function TimelineItem({ item, index }: { item: typeof timeline[0]; index: number
       {/* Card */}
       <motion.div
         whileHover={{ scale: 1.01, y: -2 }}
-        className="card rounded-2xl p-5 sm:p-6 mb-8 flex-1 transition-all"
+        className="card rounded-2xl p-3 sm:p-4 mb-5 flex-1 transition-all"
       >
         <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
           <div>
@@ -84,7 +84,7 @@ function TimelineItem({ item, index }: { item: typeof timeline[0]; index: number
             {item.period}
           </span>
         </div>
-        <p className="text-sm mb-4 leading-relaxed" style={{ color: 'var(--text-muted)' }}>{item.description}</p>
+        <p className="text-xs mb-3 leading-relaxed" style={{ color: 'var(--text-muted)' }}>{item.description}</p>
         <div className="flex flex-wrap gap-2">
           {item.metrics.map((m) => (
             <motion.span
@@ -111,7 +111,7 @@ export default function Experience() {
   const y = useTransform(scrollYProgress, [0, 1], ['-3%', '3%'])
 
   return (
-    <section id="experience" className="py-24 px-4 sm:px-6 overflow-hidden" ref={sectionRef}>
+    <section id="experience" className="py-12 px-4 sm:px-6 lg:py-0 overflow-hidden" ref={sectionRef}>
       <div className="max-w-3xl mx-auto" ref={ref}>
         <motion.div
           style={{ y }}
@@ -120,7 +120,7 @@ export default function Experience() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: 'var(--gold)' }}>
               Professional Journey
             </p>

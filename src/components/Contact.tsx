@@ -22,13 +22,13 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 px-4 sm:px-6 section-alt">
+    <section id="contact" className="py-12 px-4 sm:px-6 lg:py-0 section-alt">
       <div className="max-w-4xl mx-auto" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: 'var(--gold)' }}>
             Contact

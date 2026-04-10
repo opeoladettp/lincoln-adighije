@@ -41,9 +41,9 @@ function SkillCard({ icon: Icon, label, delay }: { icon: React.ElementType; labe
       animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
       transition={{ delay, duration: 0.4, type: 'spring', stiffness: 120 }}
       whileHover={{ scale: 1.07, y: -4, boxShadow: '0 8px 24px rgba(212,175,55,0.2)' }}
-      className="card rounded-xl p-4 flex flex-col items-center gap-2 text-center cursor-default transition-all"
+      className="card rounded-xl p-3 flex flex-col items-center gap-1.5 text-center cursor-default transition-all"
     >
-      <Icon style={{ color: 'var(--gold)', fontSize: 30 }} />
+      <Icon style={{ color: 'var(--gold)', fontSize: 24 }} />
       <span className="text-xs sm:text-sm font-medium" style={{ color: 'var(--text-primary)' }}>{label}</span>
     </motion.div>
   )
@@ -54,13 +54,13 @@ export default function Skills() {
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="expertise" className="py-24 px-4 sm:px-6 section-alt">
+    <section id="expertise" className="py-12 px-4 sm:px-6 lg:py-0 section-alt">
       <div className="max-w-6xl mx-auto" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: 'var(--gold)' }}>
             Expertise
@@ -76,7 +76,7 @@ export default function Skills() {
               initial={{ opacity: 0, x: -20 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.1 }}
-              className="text-lg font-bold mb-6 flex items-center gap-2"
+              className="text-lg font-bold mb-4 flex items-center gap-2"
               style={{ color: 'var(--gold)' }}
             >
               <CodeIcon /> Technical Stack
@@ -93,7 +93,7 @@ export default function Skills() {
               initial={{ opacity: 0, x: -20 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.15 }}
-              className="text-lg font-bold mb-6 flex items-center gap-2"
+              className="text-lg font-bold mb-4 flex items-center gap-2"
               style={{ color: 'var(--gold)' }}
             >
               <GavelIcon /> Legal & Ops

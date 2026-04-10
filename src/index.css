@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ── Light mode (default) ── */
+:root, [data-theme="light"] {
+  --bg-primary: #F8FAFC;
+  --bg-secondary: #EFF6FF;
+  --bg-card: #FFFFFF;
+  --text-primary: #0F172A;
+  --text-muted: #475569;
+  --gold: #B8860B;
+  --gold-light: #D4AF37;
+  --border: rgba(15, 23, 42, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(180, 134, 11, 0.25);
+  --shadow: 0 4px 24px rgba(15,23,42,0.08);
+  --nav-bg: rgba(248, 250, 252, 0.85);
+}
+
+/* ── Dark mode ── */
+[data-theme="dark"] {
+  --bg-primary: #0F172A;
+  --bg-secondary: #1E293B;
+  --bg-card: #1E293B;
+  --text-primary: #F8FAFC;
+  --text-muted: #94A3B8;
+  --gold: #D4AF37;
+  --gold-light: #F0D060;
+  --border: rgba(212, 175, 55, 0.2);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(212, 175, 55, 0.2);
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+  --nav-bg: rgba(15, 23, 42, 0.85);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow);
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.section-alt {
+  background-color: var(--bg-secondary);
+}
+
+/* Parallax base */
+.parallax-layer {
+  will-change: transform;
+}
+
+/* Section height cap — 100vh on large screens, auto on mobile */
+section {
+  height: auto;
+}
+
+@media (min-width: 1024px) {
+  section {
+    max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}

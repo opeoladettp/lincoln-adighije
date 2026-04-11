@@ -44,12 +44,12 @@ function SkillCard({ icon: Icon, label, index }: { icon: React.ElementType; labe
       initial={{ opacity: 0, y: 16, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: -10, scale: 0.95 }}
-      transition={{ delay: index * 0.05, duration: 0.3, type: 'spring', stiffness: 140 }}
+      transition={{ delay: index * 0.04, duration: 0.3, type: 'spring', stiffness: 140 }}
       whileHover={{ scale: 1.07, y: -4, boxShadow: '0 8px 24px rgba(212,175,55,0.2)' }}
       className="card rounded-xl p-3 flex flex-col items-center gap-1.5 text-center cursor-default"
     >
       <Icon style={{ color: 'var(--gold)', fontSize: 26 }} />
-      <span className="text-xs sm:text-sm font-medium leading-tight" style={{ color: 'var(--text-primary)' }}>
+      <span className="text-xs font-medium leading-tight" style={{ color: 'var(--text-primary)' }}>
         {label}
       </span>
     </motion.div>
@@ -60,14 +60,12 @@ export default function Skills() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
   const [activeTab, setActiveTab] = useState('all')
-
   const active = tabs.find(t => t.id === activeTab)!
 
   return (
-    <section id="expertise" className="py-12 px-4 sm:px-6 lg:py-0 section-alt">
-      <div className="max-w-4xl mx-auto" ref={ref}>
+    <section id="expertise" className="py-16 px-4 sm:px-6 lg:py-0 section-alt">
+      <div className="max-w-6xl mx-auto w-full" ref={ref}>
 
-        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}

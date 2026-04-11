@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import SchoolIcon from '@mui/icons-material/School'
-import graduationImg from '../assets/lincoln-graduation.png'
+import graduationImg from '../assets/lincoln-graduation.jpg'
 
 const education = [
   {
@@ -29,15 +29,16 @@ export default function Education() {
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="education" className="py-12 px-4 sm:px-6 lg:py-0 section-alt overflow-hidden">
-      <div className="max-w-6xl mx-auto" ref={ref}>
+    <section id="education" className="py-16 px-4 sm:px-6 lg:py-0 section-alt">
+      <div className="max-w-6xl mx-auto w-full" ref={ref}>
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-8"
+          className="text-center mb-6"
         >
-          <p className="text-sm font-semibold tracking-widest uppercase mb-3" style={{ color: 'var(--gold)' }}>
+          <p className="text-sm font-semibold tracking-widest uppercase mb-2" style={{ color: 'var(--gold)' }}>
             Education
           </p>
           <h2 className="text-3xl md:text-4xl font-extrabold" style={{ color: 'var(--text-primary)' }}>
@@ -45,46 +46,46 @@ export default function Education() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-10 items-start">
-          {/* Graduation image */}
+        {/* items-stretch makes both columns equal height */}
+        <div className="grid md:grid-cols-2 gap-8 items-stretch">
+
+          {/* Image — fills the full height of the row */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7 }}
-            className="flex justify-center"
+            className="relative rounded-3xl overflow-hidden min-h-[260px]"
+            style={{ border: '3px solid var(--gold-light)' }}
           >
-            <div className="relative w-full max-w-sm">
-              <div
-                className="absolute -inset-3 rounded-3xl blur-2xl opacity-20"
-                style={{ backgroundColor: 'var(--gold)' }}
-              />
-              <motion.img
-                src={graduationImg}
-                alt="Lincoln Adighije graduation"
-                whileHover={{ scale: 1.03 }}
-                transition={{ type: 'spring', stiffness: 180 }}
-                className="relative w-full rounded-3xl object-cover shadow-2xl"
-                style={{ border: '3px solid var(--gold-light)', maxHeight: 340, objectPosition: 'top' }}
-              />
-            </div>
+            <div
+              className="absolute -inset-3 rounded-3xl blur-2xl opacity-20 pointer-events-none"
+              style={{ backgroundColor: 'var(--gold)' }}
+            />
+            <motion.img
+              src={graduationImg}
+              alt="Lincoln Adighije graduation"
+              whileHover={{ scale: 1.04 }}
+              transition={{ type: 'spring', stiffness: 180 }}
+              className="w-full h-full object-cover object-top"
+            />
           </motion.div>
 
-          {/* Cards */}
-          <div className="flex flex-col gap-5">
+          {/* Cards — flex column, fills same height */}
+          <div className="flex flex-col gap-3 justify-between">
             {education.map((e, i) => (
               <motion.div
                 key={e.degree}
                 initial={{ opacity: 0, x: 40 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: i * 0.15, duration: 0.5 }}
+                transition={{ delay: i * 0.12, duration: 0.5 }}
                 whileHover={{ scale: 1.02, x: 4 }}
-                className="card rounded-2xl p-4 flex gap-4 cursor-default"
+                className="card rounded-2xl p-4 flex gap-3 cursor-default flex-1"
               >
                 <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 mt-1"
+                  className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 mt-0.5"
                   style={{ backgroundColor: 'var(--gold)' + '22' }}
                 >
-                  <SchoolIcon style={{ color: 'var(--gold)', fontSize: 20 }} />
+                  <SchoolIcon style={{ color: 'var(--gold)', fontSize: 18 }} />
                 </div>
                 <div>
                   <span
@@ -93,13 +94,14 @@ export default function Education() {
                   >
                     {e.year}
                   </span>
-                  <h3 className="font-bold text-base" style={{ color: 'var(--text-primary)' }}>{e.degree}</h3>
-                  <p className="text-sm font-semibold mb-1" style={{ color: 'var(--gold)' }}>{e.institution}</p>
-                  <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>{e.detail}</p>
+                  <h3 className="font-bold text-sm" style={{ color: 'var(--text-primary)' }}>{e.degree}</h3>
+                  <p className="text-xs font-semibold mb-0.5" style={{ color: 'var(--gold)' }}>{e.institution}</p>
+                  <p className="text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>{e.detail}</p>
                 </div>
               </motion.div>
             ))}
           </div>
+
         </div>
       </div>
     </section>

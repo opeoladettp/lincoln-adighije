@@ -79,18 +79,8 @@ export default function Hero() {
               className="flex flex-wrap gap-4 mb-6"
             >
               <motion.a
-                href="#experience"
-                whileHover={{ scale: 1.05, boxShadow: '0 8px 24px rgba(212,175,55,0.35)' }}
-                whileTap={{ scale: 0.97 }}
-                className="px-6 py-3 rounded-full font-semibold text-sm transition-all"
-                style={{ backgroundColor: 'var(--gold)', color: '#0F172A' }}
-              >
-                View Projects
-              </motion.a>
-              <motion.a
-                href="/Lincoln Adighije.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/Lincoln-Adighije-Resume.pdf"
+                download="Lincoln-Adighije-Resume.pdf"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 className="px-6 py-3 rounded-full font-semibold text-sm border-2 transition-all"

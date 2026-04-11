@@ -3,7 +3,6 @@ import { motion, useInView } from 'framer-motion'
 import SendIcon from '@mui/icons-material/Send'
 import EmailIcon from '@mui/icons-material/Email'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
-import GitHubIcon from '@mui/icons-material/GitHub'
 import PersonIcon from '@mui/icons-material/Person'
 import MessageIcon from '@mui/icons-material/Message'
 
@@ -31,8 +30,7 @@ export default function Contact() {
 
   const socials = [
     { icon: EmailIcon, label: 'Email', value: 'lincoln@example.com', href: 'mailto:lincoln@example.com' },
-    { icon: LinkedInIcon, label: 'LinkedIn', value: 'linkedin.com/in/lincoln-adighije', href: 'https://linkedin.com' },
-    { icon: GitHubIcon, label: 'GitHub', value: 'github.com/lincoln-adighije', href: 'https://github.com' },
+    { icon: LinkedInIcon, label: 'LinkedIn', value: 'linkedin.com/in/lincoln-adighije', href: 'https://www.linkedin.com/in/lincoln-adighije-25a86b23a/' },
   ]
 
   return (

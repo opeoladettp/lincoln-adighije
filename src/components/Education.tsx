@@ -46,15 +46,15 @@ export default function Education() {
           </h2>
         </motion.div>
 
-        {/* items-stretch makes both columns equal height */}
+        {/* items-stretch so image matches total card column height */}
         <div className="grid md:grid-cols-2 gap-8 items-stretch">
 
-          {/* Image — fills the full height of the row */}
+          {/* Image — h-full stretches to match the cards column */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7 }}
-            className="relative rounded-3xl overflow-hidden min-h-[260px]"
+            className="relative rounded-3xl overflow-hidden min-h-[200px]"
             style={{ border: '3px solid var(--gold-light)' }}
           >
             <div
@@ -66,12 +66,12 @@ export default function Education() {
               alt="Lincoln Adighije graduation"
               whileHover={{ scale: 1.04 }}
               transition={{ type: 'spring', stiffness: 180 }}
-              className="w-full h-full object-cover object-top"
+              className="w-full h-full object-cover object-top absolute inset-0"
             />
           </motion.div>
 
-          {/* Cards — flex column, fills same height */}
-          <div className="flex flex-col gap-3 justify-between">
+          {/* Cards — natural height, no stretching */}
+          <div className="flex flex-col gap-3">
             {education.map((e, i) => (
               <motion.div
                 key={e.degree}
@@ -79,24 +79,24 @@ export default function Education() {
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: i * 0.12, duration: 0.5 }}
                 whileHover={{ scale: 1.02, x: 4 }}
-                className="card rounded-2xl p-4 flex gap-3 cursor-default flex-1"
+                className="card rounded-2xl p-3 flex gap-3 cursor-default"
               >
                 <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 mt-0.5"
+                  className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5"
                   style={{ backgroundColor: 'var(--gold)' + '22' }}
                 >
-                  <SchoolIcon style={{ color: 'var(--gold)', fontSize: 18 }} />
+                  <SchoolIcon style={{ color: 'var(--gold)', fontSize: 16 }} />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <span
-                    className="text-xs px-2 py-0.5 rounded-full font-medium inline-block mb-1"
+                    className="text-xs px-2 py-0.5 rounded-full font-medium inline-block mb-0.5"
                     style={{ backgroundColor: 'var(--gold)' + '18', color: 'var(--gold)' }}
                   >
                     {e.year}
                   </span>
-                  <h3 className="font-bold text-sm" style={{ color: 'var(--text-primary)' }}>{e.degree}</h3>
-                  <p className="text-xs font-semibold mb-0.5" style={{ color: 'var(--gold)' }}>{e.institution}</p>
-                  <p className="text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>{e.detail}</p>
+                  <h3 className="font-bold text-sm leading-tight" style={{ color: 'var(--text-primary)' }}>{e.degree}</h3>
+                  <p className="text-xs font-semibold" style={{ color: 'var(--gold)' }}>{e.institution}</p>
+                  <p className="text-xs leading-snug mt-0.5" style={{ color: 'var(--text-muted)' }}>{e.detail}</p>
                 </div>
               </motion.div>
             ))}

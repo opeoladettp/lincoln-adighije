@@ -11,7 +11,7 @@ import MessageIcon from '@mui/icons-material/Message'
 // 1. Go to https://formspree.io/register — create a free account
 // 2. Click "New Form", set the destination email to me@lincolnadighije.com
 // 3. Copy the form ID (e.g. "xpwzgkqr") and replace 'YOUR_FORM_ID' below
-const FORMSPREE_ID = 'YOUR_FORM_ID'
+const FORMSPREE_ID = 'mvzdgaav'
 
 export default function Contact() {
   const ref = useRef(null)

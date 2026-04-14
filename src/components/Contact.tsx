@@ -6,6 +6,7 @@ import EmailIcon from '@mui/icons-material/Email'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import PersonIcon from '@mui/icons-material/Person'
 import MessageIcon from '@mui/icons-material/Message'
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 
 // Steps to activate form delivery:
 // 1. Go to https://formspree.io/register — create a free account
@@ -68,7 +69,7 @@ export default function Contact() {
           >
             {state.succeeded ? (
               <div className="flex flex-col items-center justify-center py-12 gap-3">
-                <div className="text-5xl">✅</div>
+                <CheckCircleIcon style={{ color: 'var(--gold)', fontSize: 56 }} />
                 <p className="font-bold text-lg" style={{ color: 'var(--gold)' }}>Message sent!</p>
                 <p className="text-sm" style={{ color: 'var(--text-muted)' }}>I'll be in touch soon.</p>
               </div>

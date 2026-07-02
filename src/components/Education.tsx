@@ -66,7 +66,7 @@ export default function Education() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-6"
+          className="text-right mb-6"
         >
           <p className="text-sm font-semibold tracking-widest uppercase mb-2" style={{ color: 'var(--gold)' }}>
             Education & Certifications
@@ -78,7 +78,7 @@ export default function Education() {
 
         <div className="grid md:grid-cols-2 gap-8 items-start">
 
-          {/* Image — sticky so it stays visible while scrolling through the cards */}
+          {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -100,8 +100,8 @@ export default function Education() {
             />
           </motion.div>
 
-          {/* Cards — natural height, no stretching */}
-          <div className="flex flex-col gap-3">
+          {/* Cards — scrollable, clipped to image height on md+, natural on mobile */}
+          <div className="md:h-[420px] md:overflow-y-auto scroll-hidden flex flex-col gap-3 md:pr-1">
             {education.map((e, i) => (
               <motion.div
                 key={e.degree}
@@ -109,7 +109,7 @@ export default function Education() {
                 animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
                 transition={{ delay: i * 0.1, duration: 0.45, type: 'spring', stiffness: 130 }}
                 whileHover={{ scale: 1.02, x: 5, boxShadow: '0 8px 24px rgba(212,175,55,0.15)' }}
-                className="card card-glow rounded-2xl p-3 flex gap-3 cursor-default"
+                className="card card-glow rounded-2xl p-3 flex gap-3 cursor-default shrink-0"
               >
                 <div
                   className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5"

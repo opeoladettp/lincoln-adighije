@@ -130,7 +130,14 @@ body {
   pointer-events: none;
 }
 
-/* ── Scroll-reveal base ── */
+/* ── Hidden scrollbar utility ── */
+.scroll-hidden {
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE/Edge */
+}
+.scroll-hidden::-webkit-scrollbar {
+  display: none;               /* Chrome/Safari */
+}
 .reveal {
   opacity: 0;
   transform: translateY(24px);

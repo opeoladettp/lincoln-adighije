@@ -4,7 +4,6 @@ import EmailIcon from '@mui/icons-material/Email'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import GavelIcon from '@mui/icons-material/Gavel'
 import CodeIcon from '@mui/icons-material/Code'
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import DownloadIcon from '@mui/icons-material/Download'
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
 
@@ -41,8 +40,6 @@ export default function Footer() {
   const ref = useRef(null)
   const sectionRef = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
-
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
 
   return (
     <footer
@@ -217,18 +214,6 @@ export default function Footer() {
           <p className="text-xs font-semibold tracking-wider" style={{ color: 'var(--gold)' }}>
             Law · Technology · Impact
           </p>
-
-          {/* Back to top */}
-          <motion.button
-            onClick={scrollToTop}
-            whileHover={{ scale: 1.1, y: -2, boxShadow: '0 6px 18px rgba(212,175,55,0.35)' }}
-            whileTap={{ scale: 0.93 }}
-            aria-label="Back to top"
-            className="w-9 h-9 rounded-full flex items-center justify-center shrink-0"
-            style={{ backgroundColor: 'var(--gold)', color: '#0F172A' }}
-          >
-            <KeyboardArrowUpIcon style={{ fontSize: 20 }} />
-          </motion.button>
         </motion.div>
 
       </div>

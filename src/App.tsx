@@ -1,4 +1,6 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import { useTheme } from './context/ThemeContext'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -23,6 +25,7 @@ const PARTICLES = Array.from({ length: 18 }, (_, i) => ({
 export default function App() {
   const { theme } = useTheme()
   const spotlightRef = useRef<HTMLDivElement>(null)
+  const [showBackToTop, setShowBackToTop] = useState(false)
 
   // Cursor spotlight
   useEffect(() => {
@@ -36,6 +39,13 @@ export default function App() {
     return () => window.removeEventListener('mousemove', move)
   }, [])
 
+  // Show back-to-top after scrolling 400px
+  useEffect(() => {
+    const handleScroll = () => setShowBackToTop(window.scrollY > 400)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   // Scroll reveal
   useEffect(() => {
     const els = document.querySelectorAll<HTMLElement>('.reveal')
@@ -46,6 +56,8 @@ export default function App() {
     els.forEach(el => io.observe(el))
     return () => io.disconnect()
   }, [])
+
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
 
   return (
     <div
@@ -92,6 +104,27 @@ export default function App() {
         <Contact />
         <Footer />
       </div>
+
+      {/* Floating back-to-top */}
+      <AnimatePresence>
+        {showBackToTop && (
+          <motion.button
+            key="back-to-top"
+            onClick={scrollToTop}
+            initial={{ opacity: 0, scale: 0.7, y: 16 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.7, y: 16 }}
+            transition={{ type: 'spring', stiffness: 260, damping: 22 }}
+            whileHover={{ scale: 1.12, boxShadow: '0 8px 24px rgba(212,175,55,0.45)' }}
+            whileTap={{ scale: 0.93 }}
+            aria-label="Back to top"
+            className="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full flex items-center justify-center shadow-lg"
+            style={{ backgroundColor: 'var(--gold)', color: '#0F172A' }}
+          >
+            <KeyboardArrowUpIcon style={{ fontSize: 22 }} />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   )
 }

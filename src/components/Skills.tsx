@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { motion, useInView, AnimatePresence } from 'framer-motion'
+import { motion, useInView, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import CodeIcon from '@mui/icons-material/Code'
 import StorageIcon from '@mui/icons-material/Storage'
 import CloudIcon from '@mui/icons-material/Cloud'
@@ -18,18 +18,18 @@ const techStack = [
   { icon: CodeIcon, label: 'Next.js / React' },
   { icon: StorageIcon, label: 'Node.js / Python' },
   { icon: CloudIcon, label: 'Cloud Infrastructure' },
-  { icon: SmartToyIcon, label: 'AI & Chatbots' },
-  { icon: MemoryIcon, label: 'Rust' },
+  { icon: SmartToyIcon, label: 'AI & Machine Learning' },
+  { icon: MemoryIcon, label: 'JavaScript / Java' },
   { icon: AccountBalanceIcon, label: 'Fintech Platforms' },
 ]
 
 const legalOps = [
   { icon: GavelIcon, label: 'Evidence Adjudication' },
   { icon: DescriptionIcon, label: 'Policy Interpretation' },
-  { icon: SecurityIcon, label: 'GDPR Compliance' },
+  { icon: SecurityIcon, label: 'GDPR & Data Protection' },
   { icon: GroupsIcon, label: 'Stakeholder Collaboration' },
   { icon: PublicIcon, label: 'International Commercial Law' },
-  { icon: AssignmentIcon, label: 'High-Volume Case Mgmt' },
+  { icon: AssignmentIcon, label: 'Data Modelling' },
 ]
 
 const tabs = [
@@ -41,14 +41,16 @@ const tabs = [
 function SkillCard({ icon: Icon, label, index }: { icon: React.ElementType; label: string; index: number }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 16, scale: 0.95 }}
+      initial={{ opacity: 0, y: 20, scale: 0.92 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: -10, scale: 0.95 }}
-      transition={{ delay: index * 0.04, duration: 0.3, type: 'spring', stiffness: 140 }}
-      whileHover={{ scale: 1.07, y: -4, boxShadow: '0 8px 24px rgba(212,175,55,0.2)' }}
-      className="card rounded-xl p-3 flex flex-col items-center gap-1.5 text-center cursor-default"
+      transition={{ delay: index * 0.05, duration: 0.35, type: 'spring', stiffness: 160 }}
+      whileHover={{ scale: 1.1, y: -6, boxShadow: '0 10px 28px rgba(212,175,55,0.25)' }}
+      className="card card-glow rounded-xl p-3 flex flex-col items-center gap-1.5 text-center cursor-default"
     >
-      <Icon style={{ color: 'var(--gold)', fontSize: 26 }} />
+      <motion.div whileHover={{ rotate: [0, -8, 8, 0] }} transition={{ duration: 0.4 }}>
+        <Icon style={{ color: 'var(--gold)', fontSize: 26 }} />
+      </motion.div>
       <span className="text-xs font-medium leading-tight" style={{ color: 'var(--text-primary)' }}>
         {label}
       </span>
@@ -58,15 +60,20 @@ function SkillCard({ icon: Icon, label, index }: { icon: React.ElementType; labe
 
 export default function Skills() {
   const ref = useRef(null)
+  const sectionRef = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
   const [activeTab, setActiveTab] = useState('all')
   const active = tabs.find(t => t.id === activeTab)!
 
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start end', 'end start'] })
+  const headingY = useTransform(scrollYProgress, [0, 1], ['-3%', '3%'])
+
   return (
-    <section id="expertise" className="py-16 px-4 sm:px-6 lg:py-0 section-alt">
+    <section id="expertise" className="py-16 px-4 sm:px-6 section-alt" ref={sectionRef}>
       <div className="max-w-6xl mx-auto w-full" ref={ref}>
 
         <motion.div
+          style={{ y: headingY }}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}

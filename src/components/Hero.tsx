@@ -68,8 +68,9 @@ export default function Hero() {
               className="text-base sm:text-lg max-w-xl mb-6 leading-relaxed"
               style={{ color: 'var(--text-muted)' }}
             >
-              A legally trained Software Engineer and Case Manager specializing in full-stack
-              development, cloud infrastructure, and data-driven adjudication.
+              A legally trained Software Engineer specialising in full-stack development, cloud
+              infrastructure, and AI — building scalable solutions at the intersection of law,
+              technology, and business.
             </motion.p>
 
             <motion.div
@@ -99,7 +100,7 @@ export default function Hero() {
             >
               {[
                 { icon: <GavelIcon fontSize="small" />, label: 'LLM · Swansea University' },
-                { icon: <CodeIcon fontSize="small" />, label: 'Full-Stack · Decagon · HNG' },
+                { icon: <CodeIcon fontSize="small" />, label: 'Full-Stack · AI · Cloud' },
               ].map(({ icon, label }) => (
                 <motion.div
                   key={label}

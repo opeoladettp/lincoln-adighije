@@ -8,36 +8,36 @@ const timeline = [
     role: 'Case Manager',
     period: 'May 2025 – Present',
     color: '#D4AF37',
-    metrics: ['96% satisfaction rate', 'Complex PIP claims management'],
+    metrics: ['High-volume case portfolios', 'Evidence-based decisions', 'Tribunal-upheld outcomes'],
     description:
-      'Managing complex PIP claims and providing expert support on medical evidence reviews, applying legal reasoning to data-driven adjudication.',
+      'Manage and analyse high-volume PIP claim portfolios, conducting detailed evidence reviews with healthcare professionals. Interpret medical and legal evidence with precision to reduce appeal rates and resolve high-profile disputed claims. Collaborate cross-functionally with policy and analytics teams to identify trends and drive process improvements.',
   },
   {
-    company: 'DVLA',
-    role: 'Operations Delivery & Customer Advisor',
+    company: 'Driver and Vehicle Licensing Agency (DVLA)',
+    role: 'Operations & Customer Advisor',
     period: 'Mar 2024 – May 2025',
     color: '#3B82F6',
-    metrics: ['25% improvement in response times', 'Fraud investigation'],
+    metrics: ['GDPR & DPA compliance', 'Fraud investigations', 'First-contact resolution'],
     description:
-      'Investigated fraud, managed sensitive data under GDPR, and improved query response times by 25% through process optimisation.',
+      'Managed sensitive customer data in compliance with GDPR and DPA. Conducted fraud investigations using multiple systems, handled data access requests, and acted as liaison between technical teams and customers. Delivered culturally sensitive responses to hundreds of daily enquiries, consistently achieving first-contact resolutions.',
   },
   {
     company: 'Nigerian Tech Ecosystem',
     role: 'Full-Stack Engineer & Contributor',
-    period: '2020 – 2024',
+    period: 'Nov 2020 – Feb 2024',
     color: '#10B981',
-    metrics: ['Fintech P2P platforms', 'Cloud data dashboards'],
+    metrics: ['Fintech P2P platforms', 'Cloud data dashboards', 'Agile delivery'],
     description:
-      "Developed peer-to-peer fintech platforms and cloud dashboards via Decagon Institute, HNG Internship, and Andela Learning Community.",
+      'Built and maintained full-stack web applications for peer-to-peer fintech platforms and cloud-based dashboard systems. Designed backend APIs, authentication systems, and database integrations. Collaborated in agile environments at Decagon Institute, HNG Internship, and Andela Learning Community, contributing to open-source-style workflows using Git.',
   },
   {
     company: 'Afe Babalola University / Swansea University',
     role: 'Law Graduate',
     period: '2015 – 2023',
     color: '#8B5CF6',
-    metrics: ['LLB Law', 'LLM International Commercial Law'],
+    metrics: ['LLB Law', 'LLM Commercial Law'],
     description:
-      'Built a strong foundation in legal reasoning, policy interpretation, and international commercial law.',
+      'Built a strong foundation in legal reasoning, policy interpretation, and international commercial law — skills that directly underpin structured engineering thinking and systems design.',
   },
 ]
 
@@ -111,7 +111,7 @@ export default function Experience() {
   const y = useTransform(scrollYProgress, [0, 1], ['-2%', '2%'])
 
   return (
-    <section id="experience" className="py-16 px-4 sm:px-6 lg:py-0" ref={sectionRef}>
+    <section id="experience" className="py-16 px-4 sm:px-6" ref={sectionRef}>
       <div className="max-w-6xl mx-auto w-full" ref={ref}>
         <motion.div
           style={{ y }}

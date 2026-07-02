@@ -6,9 +6,9 @@ import WorkHistoryIcon from '@mui/icons-material/WorkHistory'
 import portraitImg from '../assets/lincoln-portrait.jpg'
 
 const stats = [
-  { icon: EmojiEventsIcon, value: '96%', label: 'Satisfaction Rate' },
-  { icon: SpeedIcon, value: '25%', label: 'Response Time Improvement' },
-  { icon: WorkHistoryIcon, value: '7+', label: 'Years Combined Experience' },
+  { icon: EmojiEventsIcon, value: '2', label: 'Awards Won' },
+  { icon: SpeedIcon, value: '4+', label: 'Years Engineering' },
+  { icon: WorkHistoryIcon, value: '6+', label: 'Certifications' },
 ]
 
 export default function About() {
@@ -21,7 +21,7 @@ export default function About() {
   const textY = useTransform(scrollYProgress, [0, 1], ['-2%', '2%'])
 
   return (
-    <section id="about" className="py-16 px-4 sm:px-6 lg:py-0" ref={sectionRef}>
+    <section id="about" className="py-16 px-4 sm:px-6" ref={sectionRef}>
       <div className="max-w-6xl mx-auto w-full" ref={ref}>
         <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
 
@@ -88,15 +88,21 @@ export default function About() {
               Where Legal Precision Meets Engineering Excellence
             </h2>
             <p className="text-sm leading-relaxed mb-3" style={{ color: 'var(--text-muted)' }}>
-              Lincoln Adighije is a unique professional who combines structured legal reasoning with
-              hands-on software engineering. With an LLB from Afe Babalola University and an LLM in
-              Commercial Law from Swansea University, he transitioned into tech to merge analytical
-              thinking with practical problem-solving.
+              Lincoln Adighije is a software engineer with a background in law, combining analytical
+              precision and structured problem-solving with a passion for building impactful technology.
+              He holds an LLB from Afe Babalola University and an LLM in Commercial Law from Swansea
+              University.
+            </p>
+            <p className="text-sm leading-relaxed mb-3" style={{ color: 'var(--text-muted)' }}>
+              His move into technology was intentional — recognising that legal reasoning and software
+              engineering share the same core principles: logic, systems thinking, and solving complex
+              problems with clarity. That led him to develop expertise across full-stack engineering,
+              cloud infrastructure, and AI.
             </p>
             <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
-              He has honed his technical expertise through elite programs like the Decagon Institute,
-              HNG Internship, and Andela Learning Community — building fintech platforms and
-              cloud-native solutions that drive real impact.
+              He sharpened his skills through Decagon Institute, Andela Learning Community, HNG
+              Internship, and Moat Academy — and is now focused on building scalable, intelligent
+              solutions at the intersection of technology, business, and Africa's digital future.
             </p>
           </motion.div>
 
